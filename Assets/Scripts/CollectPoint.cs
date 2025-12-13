@@ -12,6 +12,8 @@ public class DosyaRaycast2D : MonoBehaviour
 
 
 
+
+
     void Update()
     {
         Vector2 direction = PlayerMovement.FacingDirection; // Karakterin baktýðý yön
