@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7980455274487215408
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2419453664690857583}
+  - component: {fileID: 7379320601176502133}
+  - component: {fileID: 8139560699240504891}
+  - component: {fileID: 853485509403530693}
+  m_Layer: 0
+  m_Name: RoomManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2419453664690857583
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7980455274487215408}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.0813923, y: -0.57506716, z: 0.013479684}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7379320601176502133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7980455274487215408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 898c3fa1840908e44b5098e578c2ac97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allRooms:
+  - {fileID: 11400000, guid: b379bfcef386e0b408bbeb5d6a7ca186, type: 2}
+  - {fileID: 11400000, guid: 352758b5d01d13b46bd282f5f1f2d985, type: 2}
+  - {fileID: 11400000, guid: 91f80864614f40a47b6055b04a11f1dc, type: 2}
+  - {fileID: 11400000, guid: 561370e254d1746489a395bfb5daadc3, type: 2}
+  currentAbilities: 
+  maxActiveRooms: 3
+--- !u!114 &8139560699240504891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7980455274487215408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf30261907bd23348b7ae14b20e68f46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainMenuPanel: {fileID: 0}
+  settingsPanel: {fileID: 0}
+  inGameHUD: {fileID: 0}
+  creditsUI: {fileID: 0}
+  pausePanel: {fileID: 0}
+  player: {fileID: 0}
+  levelGenerator: {fileID: 7379320601176502133}
+  roomCamera: {fileID: 0}
+--- !u!114 &853485509403530693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7980455274487215408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d7866f2007043b4bb023e8fe0c0a279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
