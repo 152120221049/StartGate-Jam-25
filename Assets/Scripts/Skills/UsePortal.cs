@@ -1,18 +1,24 @@
+Ôªøusing System.Net;
 using UnityEngine;
+using System.Collections;
 
 public class UsePortal : SkillBase
 {
     [Header("Referanslar")]
-    // PlayerMovement'˝ otomatik bulmas˝ iÁin OnEnable ekleyeceiz, ama manuel de atayabilirsin.
-    [SerializeField]  private PlayerMovement playerMovement;
+    // PlayerMovement'√Ω otomatik bulmas√Ω i√ßin OnEnable ekleyece√∞iz, ama manuel de atayabilirsin.
+    [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private GameObject bluePortalPrefab;
     [SerializeField] private GameObject orangePortalPrefab;
     [SerializeField] private LayerMask wallLayer;
-    [SerializeField]  private Transform firePoint;
+    [SerializeField] private Transform firePoint;
+
+    [Header("G√∂rsel Efektler")]
+    [SerializeField] private LineRenderer lineRenderer;
+    [SerializeField] private float laserDuration = 0.1f;
 
     private GameObject currentBluePortal;
     private GameObject currentOrangePortal;
-
+    private Coroutine laserCoroutine;
 
     [Header("Ayarlar")]
     [SerializeField] private float rayDistance = 10f;
@@ -20,12 +26,41 @@ public class UsePortal : SkillBase
 
     private void Start()
     {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+
         if (playerMovement == null)
             playerMovement = GetComponentInParent<PlayerMovement>();
 
+        if (lineRenderer == null)
+        {
+            // D√ùKKAT: Burada GetComponent<LineRenderer>() ASLA KULLANMIYORUZ.
+            // Player'√Ωn i√ßindeki "LaserEffect" isimli √ßocu√∞u ar√Ωyoruz.
+            Transform laserObj = player.transform.Find("LaserEffect");
+
+            if (laserObj != null)
+            {
+                Debug.Log("2. LaserEffect Objesi Bulundu!");
+                lineRenderer = laserObj.GetComponent<LineRenderer>();
+
+                if (lineRenderer != null)
+                {
+                    lineRenderer.enabled = false;
+                    Debug.Log("3. LineRenderer Ba√æar√Ωyla Al√Ωnd√Ω ve Kapat√Ωld√Ω.");
+                }
+                else
+                {
+                    Debug.LogError("HATA: 'LaserEffect' objesi var ama √ºzerinde 'Line Renderer' bile√æeni YOK!");
+                }
+            }
+            else
+            {
+                // E√∞er bulamazsa hiyerar√æiyi kontrol et
+                Debug.LogError("HATA: Player'√Ωn i√ßinde tam olarak 'LaserEffect' ad√Ωnda bir obje bulunamad√Ω! √ùsim hatas√Ω olabilir.");
+            }
+        }
 
         // 2. FirePoint Transformunu Bulma:
-        // FirePoint'in Player objesinin bir alt objesi olduunu varsay˝yoruz.
+        // FirePoint'in Player objesinin bir alt objesi oldu√∞unu varsay√Ωyoruz.
         if (firePoint == null)
         {
             Transform playerParent = transform.parent;
@@ -34,7 +69,7 @@ public class UsePortal : SkillBase
         }
     }
 
-    // --- E TUﬁU (MAV›) ---
+    // --- E TU√ûU (MAV√ù) ---
     public override void UsePrimary()
     {
         if (!IsReady())
@@ -48,13 +83,13 @@ public class UsePortal : SkillBase
         nextFireTime = Time.time + cooldownTime;
     }
 
-    // --- Q TUﬁU (TURUNCU) ---
+    // --- Q TU√ûU (TURUNCU) ---
     public override void UseSecondary()
     {
         if (!IsReady())
         {
-            // Eer IsReady false dˆnd¸r¸rse, yukar˝daki SkillBase metodundan uyar˝ logu zaten Á˝kar.
-            return; // H˝zl˝ca Á˝k˝˛ yap.
+            // E√∞er IsReady false d√∂nd√ºr√ºrse, yukar√Ωdaki SkillBase metodundan uyar√Ω logu zaten √ß√Ωkar.
+            return; // H√Ωzl√Ωca √ß√Ωk√Ω√æ yap.
         }
         // Shoot fonksiyonuna "false" yolluyoruz (Yani: Turuncu at)
         Shoot(false);
@@ -62,12 +97,12 @@ public class UsePortal : SkillBase
         nextFireTime = Time.time + cooldownTime;
     }
 
-    // D›KKAT: Fonksiyon art˝k "bool isBlue" parametresi al˝yor
+    // D√ùKKAT: Fonksiyon art√Ωk "bool isBlue" parametresi al√Ωyor
     void Shoot(bool isBlue)
     {
         if (playerMovement == null) return;
 
-        // 1. Yˆn bulma i˛lemleri (Aynen korundu)
+        // 1. Y√∂n bulma i√ælemleri (Aynen korundu)
         Vector2 rawDirection = PlayerMovement.FacingDirection;
         Vector2 finalDirection = GetCardinalDirection(rawDirection);
         Vector2 origin = firePoint != null ? firePoint.position : transform.position;
@@ -75,30 +110,57 @@ public class UsePortal : SkillBase
         // 2. Raycast at
         RaycastHit2D hit = Physics2D.Raycast(origin, finalDirection, rayDistance, wallLayer);
 
-        // Debug Rengi: Mavi ise Mavi, deilse Turuncu Áizgi Áek
+        Color laserColor = isBlue ? Color.blue : new Color(1f, 0.5f, 0f); // Mavi veya Turuncu
+        Vector2 endPoint = hit.collider != null ? hit.point : (origin + finalDirection * rayDistance);
+        DrawLaser(origin, endPoint, laserColor);
+
+        // Debug Rengi: Mavi ise Mavi, de√∞ilse Turuncu √ßizgi √ßek
         Color debugColor = isBlue ? Color.blue : new Color(1f, 0.5f, 0f);
         Debug.DrawRay(origin, finalDirection * rayDistance, debugColor, 0.2f);
 
         if (hit.collider != null)
         {
-            // BURADA DE–›ﬁ›KL›K YAPTIK:
-            // fireBlueNext yerine direkt gelen emre gˆre (isBlue) i˛lem yap˝yoruz.
+            // BURADA DE√ê√ù√û√ùKL√ùK YAPTIK:
+            // fireBlueNext yerine direkt gelen emre g√∂re (isBlue) i√ælem yap√Ωyoruz.
             if (isBlue)
             {
-                Debug.Log(">> Mavi Portal At˝ld˝ (E) <<");
+                Debug.Log(">> Mavi Portal At√Ωld√Ω (E) <<");
                 SpawnBluePortal(hit.point, hit.normal);
             }
             else
             {
-                Debug.Log(">> Turuncu Portal At˝ld˝ (Q) <<");
+                Debug.Log(">> Turuncu Portal At√Ωld√Ω (Q) <<");
                 SpawnOrangePortal(hit.point, hit.normal);
             }
 
-            // fireBlueNext sat˝r˝n˝ sildik Á¸nk¸ art˝k manuel seÁim yap˝yoruz.
+            // fireBlueNext sat√Ωr√Ωn√Ω sildik √ß√ºnk√º art√Ωk manuel se√ßim yap√Ωyoruz.
         }
     }
+    void DrawLaser(Vector2 startPos, Vector2 endPos, Color color)
+    {
+        if (lineRenderer == null) return;
 
-    // --- AﬁA–IDAK›LER AYNEN KALDI ---
+        // E√∞er bir √∂nceki lazerden kalan kapatma sayac√Ω varsa durdur
+        if (laserCoroutine != null) StopCoroutine(laserCoroutine);
+
+        lineRenderer.enabled = true;
+        lineRenderer.startColor = color;
+        lineRenderer.endColor = color;
+        lineRenderer.SetPosition(0, startPos); // Ba√ælang√Ω√ß
+        lineRenderer.SetPosition(1, endPos);   // Biti√æ
+
+        // Belirlenen s√ºre sonra kapatmak i√ßin sayac√Ω ba√ælat
+        laserCoroutine = StartCoroutine(DisableLaserAfterTime());
+    }
+
+    IEnumerator DisableLaserAfterTime()
+    {
+        yield return new WaitForSeconds(laserDuration);
+        lineRenderer.enabled = false;
+    }
+
+
+    // --- A√ûA√êIDAK√ùLER AYNEN KALDI ---
 
     void SpawnBluePortal(Vector2 position, Vector2 normal)
     {
@@ -127,7 +189,7 @@ public class UsePortal : SkillBase
     {
         if (currentBluePortal != null && currentOrangePortal != null)
         {
-            // Not: Portal scriptinin ad˝n˝n 'Portal' olduundan emin ol
+            // Not: Portal scriptinin ad√Ωn√Ωn 'Portal' oldu√∞undan emin ol
             Portal blueScript = currentBluePortal.GetComponent<Portal>();
             Portal orangeScript = currentOrangePortal.GetComponent<Portal>();
 
