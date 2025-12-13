@@ -125,10 +125,8 @@ public class PlayerSkillManager : MonoBehaviour
         skillSlots[selectedSlotIndex] = null;
 
         // 2. Yetenek objesinin kendisini tamamen YOK ET!
-        Destroy(discardedSkill.gameObject);
+        Destroy(discardedSkill.gameObject, 1f);
 
-        // Not: Q basýlý tutma süresi artýk kullanýlmadýðý için sýfýrlanmasýna gerek yok.
-        // qHoldTime = 0f; 
 
         Debug.Log($"[{selectedSlotIndex + 1}. SLOTTAN ÇIKARILDI] {skillName} yeteneði tamamen yok edildi.");
     }
@@ -158,4 +156,6 @@ public class PlayerSkillManager : MonoBehaviour
             DiscardCurrentSkill();
         }
     }
+   
+
 }
