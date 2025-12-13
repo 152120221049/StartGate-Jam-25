@@ -73,7 +73,7 @@ public class Telekinesi : SkillBase
     {
         if (playerMovement == null) return;
 
-        Vector2 rawDirection = playerMovement.FacingDirection;
+        Vector2 rawDirection = PlayerMovement.FacingDirection;
         Vector2 finalDirection = GetCardinalDirection(rawDirection);
 
         // Iþýn karakterin biraz önünden çýksýn

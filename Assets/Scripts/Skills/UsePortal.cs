@@ -103,7 +103,7 @@ public class UsePortal : SkillBase
         if (playerMovement == null) return;
 
         // 1. Yön bulma iþlemleri (Aynen korundu)
-        Vector2 rawDirection = playerMovement.FacingDirection;
+        Vector2 rawDirection = PlayerMovement.FacingDirection;
         Vector2 finalDirection = GetCardinalDirection(rawDirection);
         Vector2 origin = firePoint != null ? firePoint.position : transform.position;
 
@@ -213,7 +213,7 @@ public class UsePortal : SkillBase
             if (Mathf.Abs(direction.y) > threshold)
                 return new Vector2(0, Mathf.Sign(direction.y));
             else
-                return playerMovement.FacingDirection;
+                return PlayerMovement.FacingDirection;
         }
     }
 }
