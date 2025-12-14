@@ -46,8 +46,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: SizeChanger
   cooldownTime: 6
+  skillSprite: {fileID: 0}
   maxDurability: 4
   currentDurability: 0
+  useSoundClip: {fileID: 8300000, guid: 3cd5bff8282fc5942bead263a35fd38e, type: 3}
+  outOfDurabilityClip: {fileID: 8300000, guid: b56e9e32350d0b04dbd78234869fa1de, type: 3}
   effectDuration: 5
   normalScale: 1
   giantScale: 2

@@ -46,12 +46,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Telekinesi
   cooldownTime: 0.3
+  skillSprite: {fileID: 0}
   maxDurability: 4
   currentDurability: 0
+  useSoundClip: {fileID: 8300000, guid: 3b644afb37814d54993b983a33deb055, type: 3}
+  outOfDurabilityClip: {fileID: 8300000, guid: b56e9e32350d0b04dbd78234869fa1de, type: 3}
   playerMovement: {fileID: 0}
   firePoint: {fileID: 0}
-  lineRenderer: {fileID: 0}
-  laserDuration: 0.01
   pushForce: 100
   pullForce: 100
   range: 50

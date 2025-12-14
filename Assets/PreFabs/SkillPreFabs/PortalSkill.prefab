@@ -41,19 +41,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 8901944631132702227}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f742c4f3027d54e47b39b474c9b7af05, type: 3}
+  m_Script: {fileID: 11500000, guid: e1cdb38dca9c7814fa28ad3390348a83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillName: Portal
-  cooldownTime: 0.2
+  skillName: 
+  cooldownTime: 1
+  skillSprite: {fileID: -1577313007519601715, guid: b9bc72e932c2f3a4c971c6355f49c060, type: 3}
   maxDurability: 4
   currentDurability: 0
+  useSoundClip: {fileID: 8300000, guid: d6e79a25cd2b66443bafffcfad17ecc9, type: 3}
+  outOfDurabilityClip: {fileID: 8300000, guid: b56e9e32350d0b04dbd78234869fa1de, type: 3}
   playerMovement: {fileID: 0}
-  bluePortalPrefab: {fileID: 1738477845538710108, guid: bd507881880a4634baf8074a8bca435c, type: 3}
+  bluePortalPrefab: {fileID: 1738477845538710108, guid: 2ff7d1b18a62cb240814ffb9b5f4718e, type: 3}
   orangePortalPrefab: {fileID: 1498610788722610016, guid: 8e381ae90a4b2e149b93be75e2de7c0d, type: 3}
   wallLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 8
   firePoint: {fileID: 0}
-  rayDistance: 30
+  rayDistance: 10
   rotationOffset: 90
