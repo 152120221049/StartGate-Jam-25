@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Box
   - Sabit
+  - ice
   layers:
   - Default
   - TransparentFX
