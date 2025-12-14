@@ -1,0 +1,317 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8731293128577832720
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6415748246597498612}
+  - component: {fileID: 6993372841132237037}
+  m_Layer: 0
+  m_Name: FlameThrower
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6415748246597498612
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8731293128577832720}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 939465613796140539}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6993372841132237037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8731293128577832720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48bd8b78749bce246a9a3f5137d7548c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillName: "Alev silah\u0131"
+  cooldownTime: 1
+  skillSprite: {fileID: 2800715737579632502, guid: 6fcc394a3734e414483bf7e4fe0d3801, type: 3}
+  maxDurability: 4
+  currentDurability: 0
+  useSoundClip: {fileID: 8300000, guid: bed7d819713773c4eafb1abdbc4628bb, type: 3}
+  outOfDurabilityClip: {fileID: 8300000, guid: b56e9e32350d0b04dbd78234869fa1de, type: 3}
+  flameColliderObject: {fileID: 8799934492624166061}
+  flameParticles: {fileID: 3986012936217800335, guid: df4db987a15aaee44b89846c89e2444c, type: 3}
+  playerMovement: {fileID: 0}
+--- !u!1 &8799934492624166061
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 939465613796140539}
+  - component: {fileID: 735635204321153741}
+  - component: {fileID: 6749754371377031973}
+  m_Layer: 0
+  m_Name: FlameArea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &939465613796140539
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8799934492624166061}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6266060215273342860}
+  m_Father: {fileID: 6415748246597498612}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &735635204321153741
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8799934492624166061}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.6918294, y: 0.5275071}
+      - {x: 0.95932287, y: 0.2563431}
+      - {x: 0.4054554, y: 0.049908116}
+      - {x: 0.052366074, y: -0.09265679}
+      - {x: 3.5127761, y: -0.9837985}
+      - {x: 3.5026, y: 1.032867}
+  m_UseDelaunayMesh: 0
+--- !u!114 &6749754371377031973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8799934492624166061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05fa1dd7a075a884f9be8ed157f4db36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slowPercentage: 0.5
+--- !u!1001 &8097882069066981426
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 939465613796140539}
+    m_Modifications:
+    - target: {fileID: 885064716537624331, guid: df4db987a15aaee44b89846c89e2444c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b01e28810776d1c4da504be6f58914aa, type: 2}
+    - target: {fileID: 2780111058921940926, guid: df4db987a15aaee44b89846c89e2444c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780111058921940926, guid: df4db987a15aaee44b89846c89e2444c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780111058921940926, guid: df4db987a15aaee44b89846c89e2444c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780111058921940926, guid: df4db987a15aaee44b89846c89e2444c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780111058921940926, guid: df4db987a15aaee44b89846c89e2444c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780111058921940926, guid: df4db987a15aaee44b89846c89e2444c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780111058921940926, guid: df4db987a15aaee44b89846c89e2444c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780111058921940926, guid: df4db987a15aaee44b89846c89e2444c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780111058921940926, guid: df4db987a15aaee44b89846c89e2444c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780111058921940926, guid: df4db987a15aaee44b89846c89e2444c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3986012936217800335, guid: df4db987a15aaee44b89846c89e2444c, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3986012936217800335, guid: df4db987a15aaee44b89846c89e2444c, type: 3}
+      propertyPath: ShapeModule.angle
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3986012936217800335, guid: df4db987a15aaee44b89846c89e2444c, type: 3}
+      propertyPath: ColorModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3986012936217800335, guid: df4db987a15aaee44b89846c89e2444c, type: 3}
+      propertyPath: InitialModule.startColor.minMaxState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3986012936217800335, guid: df4db987a15aaee44b89846c89e2444c, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.atime1
+      value: 26407
+      objectReference: {fileID: 0}
+    - target: {fileID: 3986012936217800335, guid: df4db987a15aaee44b89846c89e2444c, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.ctime0
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3986012936217800335, guid: df4db987a15aaee44b89846c89e2444c, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3986012936217800335, guid: df4db987a15aaee44b89846c89e2444c, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.g
+      value: 0.93442965
+      objectReference: {fileID: 0}
+    - target: {fileID: 3986012936217800335, guid: df4db987a15aaee44b89846c89e2444c, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3986012936217800335, guid: df4db987a15aaee44b89846c89e2444c, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3986012936217800335, guid: df4db987a15aaee44b89846c89e2444c, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3986012936217800335, guid: df4db987a15aaee44b89846c89e2444c, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.g
+      value: 0.93442965
+      objectReference: {fileID: 0}
+    - target: {fileID: 3986012936217800335, guid: df4db987a15aaee44b89846c89e2444c, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3986012936217800335, guid: df4db987a15aaee44b89846c89e2444c, type: 3}
+      propertyPath: InitialModule.startColor.maxGradient.key0.b
+      value: 0.8018868
+      objectReference: {fileID: 0}
+    - target: {fileID: 3986012936217800335, guid: df4db987a15aaee44b89846c89e2444c, type: 3}
+      propertyPath: InitialModule.startColor.maxGradient.key0.g
+      value: 0.42452833
+      objectReference: {fileID: 0}
+    - target: {fileID: 3986012936217800335, guid: df4db987a15aaee44b89846c89e2444c, type: 3}
+      propertyPath: InitialModule.startColor.maxGradient.key0.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3986012936217800335, guid: df4db987a15aaee44b89846c89e2444c, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.m_ColorSpace
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4564937757849001461, guid: df4db987a15aaee44b89846c89e2444c, type: 3}
+      propertyPath: m_Name
+      value: FlameParticles
+      objectReference: {fileID: 0}
+    - target: {fileID: 4564937757849001461, guid: df4db987a15aaee44b89846c89e2444c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4564937757849001461, guid: df4db987a15aaee44b89846c89e2444c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1864221871914484988}
+  m_SourcePrefab: {fileID: 100100000, guid: df4db987a15aaee44b89846c89e2444c, type: 3}
+--- !u!1 &5708486672407444935 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4564937757849001461, guid: df4db987a15aaee44b89846c89e2444c, type: 3}
+  m_PrefabInstance: {fileID: 8097882069066981426}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1864221871914484988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5708486672407444935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62082a9e3b28bb24d8406fd8e51a8719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseColor: {r: 1, g: 1, b: 0.2784314, a: 1}
+  intensity: 2.71
+--- !u!4 &6266060215273342860 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2780111058921940926, guid: df4db987a15aaee44b89846c89e2444c, type: 3}
+  m_PrefabInstance: {fileID: 8097882069066981426}
+  m_PrefabAsset: {fileID: 0}
