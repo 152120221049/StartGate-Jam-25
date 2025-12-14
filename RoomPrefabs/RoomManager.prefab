@@ -10,8 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2419453664690857583}
   - component: {fileID: 7379320601176502133}
-  - component: {fileID: 8139560699240504891}
-  - component: {fileID: 853485509403530693}
+  - component: {fileID: 576751365841941554}
   m_Layer: 0
   m_Name: RoomManager
   m_TagString: Untagged
@@ -51,9 +50,29 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 352758b5d01d13b46bd282f5f1f2d985, type: 2}
   - {fileID: 11400000, guid: 91f80864614f40a47b6055b04a11f1dc, type: 2}
   - {fileID: 11400000, guid: 561370e254d1746489a395bfb5daadc3, type: 2}
+  - {fileID: 11400000, guid: e483d26cf6032004ea0dbee00dac8a85, type: 2}
+  - {fileID: 11400000, guid: b919318e370f9f1469ce86af8844fec7, type: 2}
+  - {fileID: 11400000, guid: ed0b1b25f07f0834491fb1efc809177c, type: 2}
+  - {fileID: 11400000, guid: 920e4140ed8ca44409d61c9f159de428, type: 2}
+  - {fileID: 11400000, guid: 29597b62580b39e46a1de2089873e13e, type: 2}
+  - {fileID: 11400000, guid: 818520445adf1244ab280ddbf5aec08b, type: 2}
+  - {fileID: 11400000, guid: a02d367e7ac6c864897b4e7ca2a3fd87, type: 2}
+  - {fileID: 11400000, guid: c8dd29b455311da42845f7d17d2525a1, type: 2}
+  - {fileID: 11400000, guid: a61b81c343c875445a51dd025e6391a4, type: 2}
+  - {fileID: 11400000, guid: 89a6d208e195bdf4896552fc0cc972bf, type: 2}
+  - {fileID: 11400000, guid: 6c7e0e7e4f7b5b54f99f0d2c45e8a685, type: 2}
+  - {fileID: 11400000, guid: 1f7d237ad25af9449a45f4dc3a6c77aa, type: 2}
+  - {fileID: 11400000, guid: d39451e2239b9864e865a5e3f5c15d4b, type: 2}
+  - {fileID: 11400000, guid: 2fed6680c1ab68a48995d4a6c14403af, type: 2}
+  - {fileID: 11400000, guid: 39b14213956dfea4380c5a839cf0ada4, type: 2}
+  - {fileID: 11400000, guid: e9fa47efad644844191a8c07f079aa71, type: 2}
+  - {fileID: 11400000, guid: df156f6355c0cd4488d1c0fa9f00b134, type: 2}
+  - {fileID: 11400000, guid: 1d55f32ef09aae2408810313bb8ff836, type: 2}
+  - {fileID: 11400000, guid: 76bff2ce2505eab4ab2595158996dd17, type: 2}
+  - {fileID: 11400000, guid: ffcdccc168c6a5b40a9db3a485572284, type: 2}
   currentAbilities: 
   maxActiveRooms: 3
---- !u!114 &8139560699240504891
+--- !u!114 &576751365841941554
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -64,24 +83,12 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf30261907bd23348b7ae14b20e68f46, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
   mainMenuPanel: {fileID: 0}
   settingsPanel: {fileID: 0}
   inGameHUD: {fileID: 0}
   creditsUI: {fileID: 0}
   pausePanel: {fileID: 0}
   player: {fileID: 0}
-  levelGenerator: {fileID: 7379320601176502133}
+  levelGenerator: {fileID: 0}
   roomCamera: {fileID: 0}
---- !u!114 &853485509403530693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7980455274487215408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d7866f2007043b4bb023e8fe0c0a279, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

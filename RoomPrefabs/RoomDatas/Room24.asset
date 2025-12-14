@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 24fc39c1fce3f0d4586ca9436ac0e603, type: 3}
-  m_Name: Room1
-  m_EditorClassIdentifier: 
-  roomPrefab: {fileID: 8351562012668608972, guid: c09d24e465d5de24399b5eed01544bd2, type: 3}
-  requiredPowerUp: 
+  m_Name: Room24
+  m_EditorClassIdentifier: Assembly-CSharp::RoomData
+  roomPrefab: {fileID: 6328084407993639891, guid: 0cf4f0f6200a44940be44db211f792e6, type: 3}
+  requiredPowerUp: 04000000
   entryDirection: 0
   timeLimit: 45
-  maxCollectibles: 5
+  maxCollectibles: 2
